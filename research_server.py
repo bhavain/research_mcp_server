@@ -3,11 +3,15 @@ import json
 import os
 from typing import List
 from fastmcp import FastMCP
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 PAPER_DIR = "papers"
 
 # Initialize FastMCP server
-mcp = FastMCP("research", port=8001)
+mcp = FastMCP("research", port=os.getenv("PORT", 8001))
 
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> List[str]:
