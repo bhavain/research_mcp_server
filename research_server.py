@@ -194,4 +194,4 @@ Please present both detailed information about each paper and a high-level synth
 
 if __name__ == "__main__":
     # Initialize and run the server
-    mcp.run(transport='http', log_level="debug")
+    mcp.run(transport='http', log_level="debug", host=os.getenv("HOST", "0.0.0.0"))
